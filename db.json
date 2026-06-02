@@ -1,0 +1,312 @@
+{
+"events": [
+{
+"id": "1",
+"title": "React Conference 2026",
+"description": "Annual React developers conference.",
+"category": "Technology",
+"date": "2026-07-15",
+"time": "09:00 AM",
+"location": "Toronto, ON",
+"venue": "Metro Toronto Convention Centre",
+"image": "https://picsum.photos/400/200?random=1",
+"organizerName": "Tech Events Canada",
+"ticketTypes": [
+{ "id": "1", "name": "General", "price": 199, "available": 250 },
+{ "id": "2", "name": "VIP", "price": 399, "available": 50 }
+]
+},
+{
+"id": "2",
+"title": "Node.js Summit",
+"description": "Backend and Node.js ecosystem conference.",
+"category": "Technology",
+"date": "2026-08-20",
+"time": "10:00 AM",
+"location": "Montreal, QC",
+"venue": "Palais des congrès",
+"image": "https://picsum.photos/400/200?random=2",
+"organizerName": "Dev Community",
+"ticketTypes": [
+{ "id": "1", "name": "Standard", "price": 149, "available": 300 },
+{ "id": "2", "name": "Premium", "price": 299, "available": 100 }
+]
+},
+{
+"id": "3",
+"title": "Summer Music Festival",
+"description": "Three-day outdoor music festival.",
+"category": "Music",
+"date": "2026-06-10",
+"time": "04:00 PM",
+"location": "Ottawa, ON",
+"venue": "Lansdowne Park",
+"image": "https://picsum.photos/400/200?random=3",
+"organizerName": "Festival Productions",
+"ticketTypes": [
+{ "id": "1", "name": "Day Pass", "price": 79, "available": 1000 },
+{ "id": "2", "name": "Weekend Pass", "price": 199, "available": 500 }
+]
+},
+{
+"id": "4",
+"title": "Business Leadership Forum",
+"description": "Leadership and networking event.",
+"category": "Business",
+"date": "2026-09-12",
+"time": "08:30 AM",
+"location": "Vancouver, BC",
+"venue": "Convention Centre",
+"image": "https://picsum.photos/400/200?random=4",
+"organizerName": "Leadership Network",
+"ticketTypes": [
+{ "id": "1", "name": "Professional", "price": 249, "available": 150 },
+{ "id": "2", "name": "Executive", "price": 499, "available": 50 }
+]
+},
+{
+"id": "5",
+"title": "Family Fun Fair",
+"description": "Family activities, games and food.",
+"category": "Family",
+"date": "2026-07-05",
+"time": "11:00 AM",
+"location": "Mississauga, ON",
+"venue": "Celebration Square",
+"image": "https://picsum.photos/400/200?random=5",
+"organizerName": "Community Events Group",
+"ticketTypes": [
+{ "id": "1", "name": "Adult", "price": 20, "available": 1000 },
+{ "id": "2", "name": "Child", "price": 10, "available": 1000 }
+]
+},
+{
+"id": "6",
+"title": "AI & Machine Learning Expo",
+"description": "Latest innovations in AI and ML.",
+"category": "Technology",
+"date": "2026-10-08",
+"time": "09:00 AM",
+"location": "Calgary, AB",
+"venue": "Stampede Grounds",
+"image": "https://picsum.photos/400/200?random=6",
+"organizerName": "AI Canada",
+"ticketTypes": [
+{ "id": "1", "name": "General", "price": 179, "available": 300 },
+{ "id": "2", "name": "VIP", "price": 349, "available": 80 }
+]
+},
+{
+"id": "7",
+"title": "Startup Pitch Night",
+"description": "Pitch ideas to investors.",
+"category": "Business",
+"date": "2026-11-14",
+"time": "06:00 PM",
+"location": "Toronto, ON",
+"venue": "Innovation Hub",
+"image": "https://picsum.photos/400/200?random=7",
+"organizerName": "Startup Ontario",
+"ticketTypes": [
+{ "id": "1", "name": "Attendee", "price": 49, "available": 400 }
+]
+},
+{
+"id": "8",
+"title": "Food & Wine Festival",
+"description": "Taste local and international cuisine.",
+"category": "Food",
+"date": "2026-08-01",
+"time": "12:00 PM",
+"location": "Niagara Falls, ON",
+"venue": "Waterfront Park",
+"image": "https://picsum.photos/400/200?random=8",
+"organizerName": "Taste Canada",
+"ticketTypes": [
+{ "id": "1", "name": "General", "price": 60, "available": 800 }
+]
+},
+{
+"id": "9",
+"title": "Health & Wellness Expo",
+"description": "Fitness, nutrition and wellness event.",
+"category": "Health",
+"date": "2026-09-05",
+"time": "09:30 AM",
+"location": "Hamilton, ON",
+"venue": "Convention Hall",
+"image": "https://picsum.photos/400/200?random=9",
+"organizerName": "Healthy Living",
+"ticketTypes": [
+{ "id": "1", "name": "Entry", "price": 35, "available": 700 }
+]
+},
+{
+"id": "10",
+"title": "Cybersecurity Summit",
+"description": "Security experts and workshops.",
+"category": "Technology",
+"date": "2026-12-03",
+"time": "08:00 AM",
+"location": "Toronto, ON",
+"venue": "Tech Centre",
+"image": "https://picsum.photos/400/200?random=10",
+"organizerName": "SecureTech",
+"ticketTypes": [
+{ "id": "1", "name": "Standard", "price": 249, "available": 200 }
+]
+},
+{
+"id": "11",
+"title": "Photography Workshop",
+"description": "Learn photography from professionals.",
+"category": "Education",
+"date": "2026-06-25",
+"time": "01:00 PM",
+"location": "Kingston, ON",
+"venue": "Arts Centre",
+"image": "https://picsum.photos/400/200?random=11",
+"organizerName": "Creative Arts",
+"ticketTypes": [
+{ "id": "1", "name": "Participant", "price": 99, "available": 80 }
+]
+},
+{
+"id": "12",
+"title": "Yoga Retreat",
+"description": "Weekend yoga and mindfulness retreat.",
+"category": "Health",
+"date": "2026-07-30",
+"time": "08:00 AM",
+"location": "Muskoka, ON",
+"venue": "Lakeside Resort",
+"image": "https://picsum.photos/400/200?random=12",
+"organizerName": "Zen Life",
+"ticketTypes": [
+{ "id": "1", "name": "Retreat Pass", "price": 399, "available": 100 }
+]
+},
+{
+"id": "13",
+"title": "Winter Coding Bootcamp",
+"description": "Intensive software development training.",
+"category": "Education",
+"date": "2026-12-15",
+"time": "09:00 AM",
+"location": "Toronto, ON",
+"venue": "Code Academy",
+"image": "https://picsum.photos/400/200?random=13",
+"organizerName": "Code Academy",
+"ticketTypes": [
+{ "id": "1", "name": "Student", "price": 599, "available": 120 }
+]
+},
+{
+"id": "14",
+"title": "Charity Gala Dinner",
+"description": "Fundraising event for local charities.",
+"category": "Charity",
+"date": "2026-10-22",
+"time": "07:00 PM",
+"location": "Toronto, ON",
+"venue": "Grand Ballroom",
+"image": "https://picsum.photos/400/200?random=14",
+"organizerName": "Helping Hands",
+"ticketTypes": [
+{ "id": "1", "name": "Dinner Ticket", "price": 150, "available": 300 }
+]
+},
+{
+"id": "15",
+"title": "International Book Fair",
+"description": "Books, authors and publishing industry event.",
+"category": "Literature",
+"date": "2026-09-18",
+"time": "10:00 AM",
+"location": "Toronto, ON",
+"venue": "Exhibition Centre",
+"image": "https://picsum.photos/400/200?random=15",
+"organizerName": "Readers Association",
+"ticketTypes": [
+{ "id": "1", "name": "Entry", "price": 25, "available": 1500 }
+]
+}
+],
+"bookings": [
+{
+"id": "1",
+"userId": "1",
+"eventId": "1",
+"eventTitle": "React Conference 2026",
+"eventDate": "2026-07-15",
+"tickets": [{ "type": "General", "quantity": 2, "price": 199 }],
+"attendees": [
+{ "name": "Martin Tchembe", "email": "[martin@example.com](mailto:martin@example.com)", "phone": "6475551234" }
+],
+"totalAmount": 398,
+"status": "confirmed",
+"bookingDate": "2026-04-01",
+"referenceNumber": "BK100001"
+},
+{
+"id": "2",
+"userId": "1",
+"eventId": "3",
+"eventTitle": "Summer Music Festival",
+"eventDate": "2026-06-10",
+"tickets": [{ "type": "Weekend Pass", "quantity": 3, "price": 199 }],
+"attendees": [
+{ "name": "Martin Tchembe", "email": "[martin@example.com](mailto:martin@example.com)", "phone": "6475551234" }
+],
+"totalAmount": 597,
+"status": "pending",
+"bookingDate": "2026-05-15",
+"referenceNumber": "BK100002"
+},
+{
+"id": "3",
+"userId": "2",
+"eventId": "6",
+"eventTitle": "AI & Machine Learning Expo",
+"eventDate": "2026-10-08",
+"tickets": [{ "type": "VIP", "quantity": 1, "price": 349 }],
+"attendees": [
+{ "name": "Martin Tchembe", "email": "[martin@example.com](mailto:martin@example.com)", "phone": "6475551234" }
+],
+"totalAmount": 349,
+"status": "confirmed",
+"bookingDate": "2026-05-20",
+"referenceNumber": "BK100003"
+},
+{
+"id": "4",
+"userId": "3",
+"eventId": "10",
+"eventTitle": "Cybersecurity Summit",
+"eventDate": "2026-12-03",
+"tickets": [{ "type": "Standard", "quantity": 1, "price": 249 }],
+"attendees": [
+{ "name": "Martin Tchembe", "email": "[martin@example.com](mailto:martin@example.com)", "phone": "6475551234" }
+],
+"totalAmount": 249,
+"status": "cancelled",
+"bookingDate": "2026-05-22",
+"referenceNumber": "BK100004"
+},
+{
+"id": "5",
+"userId": "1",
+"eventId": "15",
+"eventTitle": "International Book Fair",
+"eventDate": "2026-09-18",
+"tickets": [{ "type": "Entry", "quantity": 4, "price": 25 }],
+"attendees": [
+{ "name": "Martin Tchembe", "email": "[martin@example.com](mailto:martin@example.com)", "phone": "6475551234" }
+],
+"totalAmount": 100,
+"status": "confirmed",
+"bookingDate": "2026-05-25",
+"referenceNumber": "BK100005"
+}
+]
+}
