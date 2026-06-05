@@ -7,6 +7,10 @@ import { NavLink, useLocation } from 'react-router';
 import { FormControlLabel, InputBase, Switch } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { alpha, styled } from '@mui/material/styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSearchTerm } from '../store/eventsSlice';
+import { debounce } from '../utilis';
+import type { RootState } from '../store';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,10 +56,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 export default function AppHeader() {
+  const searchTerm = useSelector((state: RootState) => state.events.searchTerm)
   const location = useLocation();
+  const dispatch = useDispatch()
   
   const isHomePage = location.pathname === '/';
-  
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    debounce(async () => {
+      const searchTerm = event.target.value
+      dispatch(updateSearchTerm(searchTerm))
+    }, 300)();
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="inherit">
@@ -89,9 +102,11 @@ export default function AppHeader() {
                   <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
+                  defaultValue={searchTerm}
                   placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-              />
+                  inputProps={{ 'aria-label': 'search' }}
+                  onChange={handleSearch}
+                />
             </Search>}
             <FormControlLabel control={<Switch defaultChecked />} label="Light" />
         </Toolbar>

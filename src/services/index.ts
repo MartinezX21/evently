@@ -1,3 +1,5 @@
+import type { Booking } from "../model";
+
 // GET /events (with optional query params for filters)
 export async function getEvents(filters?: { category?: string, dateFrom?: string; dateTo?: string; priceFrom?: number; priceTo?: number }) {
     let url = "/events"
@@ -9,7 +11,7 @@ export async function getEvents(filters?: { category?: string, dateFrom?: string
         url += `?${queryParams.toString()}`
     }
     const response = await fetch(getCompleteUrl(url))
-    return response.json()
+    return await response.json()
 }
 
 // GET /events/:id
@@ -17,6 +19,21 @@ export async function getEvents(filters?: { category?: string, dateFrom?: string
 // GET /bookings?userId=user1
 
 // POST /bookings
+export const addNewBooking = async (bookingData: Booking) => {
+    const response = await fetch(getCompleteUrl('/bookings'), {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData),
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+};
 
 // PATCH /bookings/:id (for cancellation)
 

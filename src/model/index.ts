@@ -40,7 +40,7 @@ export type Booking = {
     tickets: BookingTicket[]
     attendees: BookingAttendee[]
     totalAmount: number
-    status: string
+    status: "pending" | "confirmed" | "cancelled"
     bookingDate: string
     referenceNumber: string
 }

@@ -1,37 +1,40 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { Booking } from '../model'
+import type { RootState } from '.'
+import type { Booking } from '../model';
 
-export interface BookingsState {
-  bookings: Booking[]
+interface BookingsState {
+  filterBy: "upcoming" | "past" | "all"
 }
 
-const initialState: BookingsState = {
-  bookings: [],
-}
+const bookingAdapter = createEntityAdapter<Booking, string>({
+  selectId: (booking: Booking) => booking.id
+});
+
+const initialState = bookingAdapter.getInitialState<BookingsState>({
+  filterBy: "all"
+})
 
 export const bookingsSlice = createSlice({
   name: 'bookings',
   initialState,
   reducers: {
-    addBookings: (state, action: PayloadAction<Booking[]>) => {
-      state.bookings = [
-        ...state.bookings,
-        ...action.payload
-      ]
+    saveBooking: bookingAdapter.upsertOne,
+    bookingsReceived: (state, action: PayloadAction<Booking[]>) => {
+      bookingAdapter.setAll(state, action.payload)
     },
-    replaceBooking: (state, action: PayloadAction<Booking>) => {
-      const index = state.bookings.findIndex(booking => booking.id === action.payload.id)
-      if (index !== -1) {
-        state.bookings[index] = action.payload
-      }
-    },
-    deleteBooking: (state, action: PayloadAction<string>) => {
-      state.bookings = state.bookings.filter(booking => booking.id !== action.payload)
+    deleteBooking: bookingAdapter.removeOne,
+    updateFilterBy: (state, action: PayloadAction<"upcoming" | "past" | "all">) => {
+      state.filterBy = action.payload
     }
   },
 })
 
-export const { addBookings, replaceBooking, deleteBooking } = bookingsSlice.actions
+export const { saveBooking, bookingsReceived, deleteBooking, updateFilterBy } = bookingsSlice.actions;
 
-export default bookingsSlice.reducer
+export default bookingsSlice.reducer;
+
+export const {
+  selectAll: selectAllBookings,
+  selectById: selectBookingById,
+} = bookingAdapter.getSelectors((state: RootState) => state.bookings);

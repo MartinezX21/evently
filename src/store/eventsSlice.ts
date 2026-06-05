@@ -1,36 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { Event } from '../model'
+import type { RootState } from '.'
 
-export interface EventsState {
-  events: Event[],
-  favoriteEventsIds: string[],
+interface EventsState {
+  favoriteEventsIds: string[]
+  searchTerm: string
 }
 
-const initialState: EventsState = {
-  events: [],
+const eventAdapter = createEntityAdapter<Event, string>({
+  selectId: (event: Event) => event.id
+});
+
+const initialState = eventAdapter.getInitialState<EventsState>({
   favoriteEventsIds: [],
-}
+  searchTerm: '',
+})
 
 export const eventsSlice = createSlice({
   name: 'events',
   initialState,
   reducers: {
-    addEvents: (state, action: PayloadAction<Event[]>) => {
-      state.events = [
-        ...state.events,
-        ...action.payload
-      ]
+    saveEvent: eventAdapter.upsertOne,
+    eventsReceived: (state, action: PayloadAction<Event[]>) => {
+      eventAdapter.setAll(state, action.payload)
     },
-    replaceEvent: (state, action: PayloadAction<Event>) => {
-      const index = state.events.findIndex(event => event.id === action.payload.id)
-      if (index !== -1) {
-        state.events[index] = action.payload
-      }
-    },
-    deleteEvent: (state, action: PayloadAction<string>) => {
-      state.events = state.events.filter(event => event.id !== action.payload)
-    },
+    deleteEvent: eventAdapter.removeOne,
     toggleFavoriteEvent: (state, action: PayloadAction<string>) => {
       const eventId = action.payload
       if (state.favoriteEventsIds.includes(eventId)) {
@@ -38,10 +33,18 @@ export const eventsSlice = createSlice({
       } else {
         state.favoriteEventsIds.push(eventId)
       }
+    },
+    updateSearchTerm: (state, action: PayloadAction<string>) => {
+      state.searchTerm = action.payload
     }
   },
 })
 
-export const { addEvents, replaceEvent, deleteEvent, toggleFavoriteEvent } = eventsSlice.actions
+export const { saveEvent, eventsReceived, deleteEvent, toggleFavoriteEvent, updateSearchTerm } = eventsSlice.actions;
 
-export default eventsSlice.reducer
+export default eventsSlice.reducer;
+
+export const {
+  selectAll: selectAllEvents,
+  selectById: selectEventById,
+} = eventAdapter.getSelectors((state: RootState) => state.events);

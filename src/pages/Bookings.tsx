@@ -1,5 +1,4 @@
 import { Breadcrumbs, Container, Typography } from "@mui/material";
-import { Link } from "react-router";
 
 function Bookings() {
   return (
@@ -13,9 +12,6 @@ function BookingsBreadcrumbs() {
   return (
     <div role="presentation">
       <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" color="inherit">
-          Home
-        </Link>
         <Typography sx={{ color: 'text.primary' }}>My Bookings</Typography>
       </Breadcrumbs>
     </div>
