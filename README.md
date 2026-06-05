@@ -21,7 +21,7 @@ npm run server
 ```
 
 ### Starting the app
-Start the app by running the command below and open [this link](http://localhost:5173/) in the browser, or use the vercel-deployed version using [this link](https://vercel.com/martin-xt-projects/evently/Gkj7K3U42Ek6mg53AmkcGRyGioQB).
+Start the app by running the command below and open [this link](http://localhost:5173/) in the browser, or use the vercel-deployed version using [this link](https://evently-omega-mocha.vercel.app/).
 
 ```js
 npm run dev
