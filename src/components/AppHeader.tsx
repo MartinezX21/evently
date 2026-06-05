@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import { NavLink, useLocation } from 'react-router';
 import { FormControlLabel, InputBase, Switch } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { alpha, styled } from '@mui/material/styles';
+import { alpha, styled, useTheme } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSearchTerm } from '../store/eventsSlice';
 import { debounce } from '../utilis';
@@ -55,10 +55,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-export default function AppHeader() {
+export default function AppHeader({ onThemeChange }: { onThemeChange: () => void }) {
   const searchTerm = useSelector((state: RootState) => state.events.searchTerm)
   const location = useLocation();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const theme = useTheme();
   
   const isHomePage = location.pathname === '/';
 
@@ -94,7 +95,7 @@ export default function AppHeader() {
                   textDecoration: 'none', 
                   color: 'inherit'
                 },
-                ...(isActive ? { color: 'blue' } : {})
+                ...(isActive ? { color: theme.palette.primary.main } : {})
               })}>
                 <Button color="inherit">Events</Button>
               </NavLink>
@@ -103,13 +104,13 @@ export default function AppHeader() {
                   textDecoration: 'none', 
                   color: 'inherit'
                 },
-                ...(isActive ? { color: 'blue' } : {})
+                ...(isActive ? { color: theme.palette.primary.main } : {})
               })}>
                 <Button color="inherit">My Bookings</Button>
               </NavLink>
             </Box>
             {isHomePage &&
-              <Search>
+              <Search style={{ marginRight: 16 }}>
                 <SearchIconWrapper>
                   <SearchIcon />
                 </SearchIconWrapper>
@@ -120,7 +121,7 @@ export default function AppHeader() {
                   onChange={handleSearch}
                 />
             </Search>}
-            <FormControlLabel control={<Switch defaultChecked />} label="Light" />
+            <FormControlLabel control={<Switch defaultChecked onChange={onThemeChange} />} label="Light" />
         </Toolbar>
       </AppBar>
     </Box>

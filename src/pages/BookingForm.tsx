@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import type { Booking, Event } from "../model";
-import { useBookingForm } from "../ctx/bookingForm.context";
+import { useBookingForm } from "../context/bookingForm.context";
 import { Link, useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { selectEventById } from "../store/eventsSlice";
@@ -38,6 +38,7 @@ function BookingForm() {
         message: "",
         severity: "success" as "success" | "error",
     });
+    const [attendeeHasError, setAttendeeHasError] = useState(false);
 
     const { selectedTickets, resetForm } = useBookingForm();
 
@@ -64,6 +65,10 @@ function BookingForm() {
                     );
                     if (hasInvalidAttendee) {
                         showSnackbar("Please provide complete details for all attendees.", "error");
+                        return;
+                    }
+                    if (attendeeHasError) {
+                        showSnackbar("There are issues with one or more attendees, please fix them to proceed", "error");
                         return;
                     }
                     break;
@@ -133,7 +138,6 @@ function BookingForm() {
     return (
         <Container maxWidth="lg" sx={{ mt: 4, mb: 6 }}>
             <BookingFormBreadcrumbs eventId={event.id} eventTitle={event.title} />
-            <Typography variant="h4" sx={{ fontWeight: 700 }}>Book tickets</Typography>
 
             <Paper sx={{ p: 3, borderRadius: 3 }}>
                 <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
@@ -153,7 +157,7 @@ function BookingForm() {
 
                 {activeStep === 0 && <TicketSelection event={event} />}
 
-                {activeStep === 1 && <AttendeeDetails />}
+                {activeStep === 1 && <AttendeeDetails onErrorStateChange={(hasError: boolean) => setAttendeeHasError(hasError)} />}
 
                 {activeStep === 2 && <BookingConfirmation />}
 

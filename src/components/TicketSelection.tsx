@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Checkbox, TextField, Typography } from "@mui/material";
 import type { Event } from "../model";
-import { useBookingForm } from "../ctx/bookingForm.context";
+import { useBookingForm } from "../context/bookingForm.context";
 import { useCallback } from "react";
 
 function TicketSelection({ event }: { event: Event }) {

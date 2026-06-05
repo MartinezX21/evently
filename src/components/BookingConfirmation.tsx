@@ -1,5 +1,5 @@
 import { Box, Divider, Paper, Typography } from "@mui/material";
-import { useBookingForm } from "../ctx/bookingForm.context";
+import { useBookingForm } from "../context/bookingForm.context";
 import { useMemo } from "react";
 
 function BookingConfirmation() {
