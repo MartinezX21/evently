@@ -133,7 +133,8 @@ function BookingForm() {
     return (
         <Container maxWidth="lg" sx={{ mt: 4, mb: 6 }}>
             <BookingFormBreadcrumbs eventId={event.id} eventTitle={event.title} />
-            
+            <Typography variant="h4" sx={{ fontWeight: 700 }}>Book tickets</Typography>
+
             <Paper sx={{ p: 3, borderRadius: 3 }}>
                 <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
                     Book tickets for {event.title}

@@ -35,6 +35,7 @@ function Home() {
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <HomeBreadcrumbs />
+      <Typography variant="h4" sx={{ fontWeight: 700 }}>All Events</Typography>
 
       <div className="events-grid">
         {filteredEvents.length === 0 && (

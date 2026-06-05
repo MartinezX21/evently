@@ -40,7 +40,7 @@ function EventDetails() {
         <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
             <Typography variant="h5">Event not found.</Typography>
             <Button component={Link} to="/" sx={{ mt: 2 }}>
-            Back to events
+                Back to events
             </Button>
         </Container>
         );

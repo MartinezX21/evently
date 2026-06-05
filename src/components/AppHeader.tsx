@@ -89,10 +89,22 @@ export default function AppHeader() {
                 EVENTLY
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <NavLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <NavLink to="/" style={({ isActive }) => ({
+                ...{
+                  textDecoration: 'none', 
+                  color: 'inherit'
+                },
+                ...(isActive ? { color: 'blue' } : {})
+              })}>
                 <Button color="inherit">Events</Button>
               </NavLink>
-              <NavLink to="/bookings" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <NavLink to="/bookings" style={({ isActive }) => ({
+                ...{
+                  textDecoration: 'none', 
+                  color: 'inherit'
+                },
+                ...(isActive ? { color: 'blue' } : {})
+              })}>
                 <Button color="inherit">My Bookings</Button>
               </NavLink>
             </Box>

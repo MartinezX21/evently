@@ -14,9 +14,18 @@ export async function getEvents(filters?: { category?: string, dateFrom?: string
     return await response.json()
 }
 
-// GET /events/:id
-
 // GET /bookings?userId=user1
+export async function getBookings(userId: string) {
+    const response = await fetch(getCompleteUrl('/bookings'));
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const bookings = await response.json();
+    if(!!userId) {
+        return bookings.filter((booking: Booking) => booking.userId === userId);
+    }
+    return bookings;
+}
 
 // POST /bookings
 export const addNewBooking = async (bookingData: Booking) => {
@@ -36,5 +45,20 @@ export const addNewBooking = async (bookingData: Booking) => {
 };
 
 // PATCH /bookings/:id (for cancellation)
+export async function cancelBooking(bookingId: string) {
+    const response = await fetch(getCompleteUrl(`/bookings/${bookingId}`), {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: 'cancelled' }),
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+}
 
 const getCompleteUrl = (endpointPath: string) => `http://localhost:4000${endpointPath}`
